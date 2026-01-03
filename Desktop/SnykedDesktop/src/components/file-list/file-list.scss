@@ -1,0 +1,9 @@
+.file-list{
+    .file-display{
+        border: 5px solid black;
+        border-bottom: 0px;
+    }
+    &:last-child{
+        border-bottom: 5px solid black;
+    }
+}
