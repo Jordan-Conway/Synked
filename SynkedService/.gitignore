@@ -1,0 +1,4 @@
+target/
+
+# Cargo.locks for libs
+./synked-service-data/Cargo.lock
