@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.synked_android.R
 import java.util.Locale
 
-class FileAdapter(private val fileInfos: Array<FileInfo>) : RecyclerView.Adapter<FileAdapter.ViewHolder>() {
+class FileAdapter(private val fileList: List<FileInfo>) : RecyclerView.Adapter<FileAdapter.ViewHolder>() {
     companion object {
         val dateTimeFormat = SimpleDateFormat("HH:mm dd/MM/yyyy", Locale.getDefault())
     }
@@ -21,15 +21,15 @@ class FileAdapter(private val fileInfos: Array<FileInfo>) : RecyclerView.Adapter
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        var fileInfo = fileInfos[position]
+        val fileInfo = fileList[position]
 
         holder.nameText.text = fileInfo.name
         holder.pathText.text = fileInfo.path
-        holder.lastModifiedText.text = dateTimeFormat.format(fileInfo.lastModified)
+        holder.lastModifiedText.text = fileInfo.getLastSyncedAsString();
     }
 
     override fun getItemCount(): Int {
-        return fileInfos.size
+        return fileList.size
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {

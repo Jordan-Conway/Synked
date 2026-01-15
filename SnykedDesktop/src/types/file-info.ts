@@ -1,7 +1,13 @@
-type FileInfo = {
+class FileInfo {
     name: string
     path: string
-    lastModified: Date
+    last_synced_ms: Number
+
+    constructor() {
+        this.name = ""
+        this.path = ""
+        this.last_synced_ms = Date.UTC(0)
+    }
 }
 
 export default FileInfo

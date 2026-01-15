@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.synked_android.file.FileAdapter
 import com.example.synked_android.file.FileInfo
+import com.example.synked_android.file.SharedFileList
 import java.util.Date
 
 class MainActivity : AppCompatActivity() {
@@ -14,12 +15,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val dataSet = arrayOf(
-            FileInfo("File 1", "No Path Provided", Date(9)),
-            FileInfo("File 2", "No Path Provided", Date(9))
-        )
+        val sharedFiles = SharedFileList()
+        sharedFiles.addFile(FileInfo("File 1", "No Path Provided", 0))
+        sharedFiles.addFile(FileInfo("File 2", "No Path Provided", 0))
 
-        val adapter = FileAdapter(dataSet)
+        val adapter = FileAdapter(sharedFiles.getFiles())
 
         val recyclerView : RecyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)

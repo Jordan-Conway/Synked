@@ -10,7 +10,7 @@ export default function FileDisplay({ fileInfo }: FileDisplayProps){
         <div className="file-display">
             <span className="file-name">{fileInfo.name}</span>
             <span className="file-path">{fileInfo.path}</span>
-            <span className="file-last-modified">{fileInfo.lastModified.toString()}</span>
+            <span className="file-last-modified">{new Date(fileInfo.last_synced_ms.valueOf()).toUTCString()}</span>
         </div>
     );
 }

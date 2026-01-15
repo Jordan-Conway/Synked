@@ -1,16 +1,16 @@
 import "./file-list.scss"
-import FileInfo from "../../types/file-info";
 import FileDisplay from "../file-display/file-display"
+import SharedFileInfo from "../../types/shared-file-list"
 
 type FileListProps = {
-    files: FileInfo[]
+    shared_files: SharedFileInfo
 }
 
-export default function FileList({files}: FileListProps)
+export default function FileList({shared_files}: FileListProps)
 {
     return(
         <div className="file-list">
-            {files.map(file => (
+            {shared_files.files.map(file => (
                 <FileDisplay fileInfo={file}/>
             ))}
         </div>
